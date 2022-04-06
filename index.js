@@ -18,8 +18,8 @@ window.onload = () => {
   class Player {
     constructor() {
       this.position = {
-        x: 80,
-        y: 330,
+        x: 270,
+        y: 500,
       };
       this.w = 80;
       this.h = 200;
@@ -92,7 +92,7 @@ window.onload = () => {
     stackArr.push(new Stack());
   }
   setInterval(addStack, 2000);
-  setInterval(addObstacle, 1700);
+  setInterval(addObstacle, 1900);
 
   const canvas = document.getElementById("canvas");
   const ctx = canvas.getContext("2d");
@@ -132,7 +132,7 @@ window.onload = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = "white";
     ctx.font = "30px Times";
-    ctx.fillText(`Score: ${player.score}`, 70, 30);
+    ctx.fillText(`Score: ${player.score}`, 100, 30);
     ctx.drawImage(
       playerimg,
       player.position.x,
@@ -141,7 +141,7 @@ window.onload = () => {
       player.h
     );
       if(player.messageTimer){
-        ctx.fillText(player.message, 70, 100);
+        ctx.fillText(player.message, 120, 70);
         player.messageTimer--
       }
 
@@ -178,7 +178,7 @@ window.onload = () => {
       if(stackArr[i].position.y + stackArr[i].h > canvas.height) {
         player.score--;
         stackArr.splice(i,1);
-        player.message ='Get your money up, NOT your funny up'
+        player.message ='Money up! NOT funny up'
         player.stack.pop();
         player.messageTimer = 100
         countStacksMissed++;
