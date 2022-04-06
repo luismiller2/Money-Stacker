@@ -2,7 +2,7 @@ body {
     padding: 0;
     text-align: center;
     background-color: rgb(231, 188, 142);
-    background-image: url("/images/money-tree.jpeg");
+    background-image: url("images/money-tree.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -60,7 +60,7 @@ body {
 }
 
 canvas {
-    background-image: url("/images/bank-vault2.jpeg");
+    background-image: url("images/bank-vault2.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
   }
