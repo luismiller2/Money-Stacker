@@ -178,7 +178,7 @@ window.onload = () => {
       if(stackArr[i].position.y + stackArr[i].h > canvas.height) {
         player.score--;
         stackArr.splice(i,1);
-        player.message ='Money up! NOT funny up'
+        player.message ='Missed One!'
         player.stack.pop();
         player.messageTimer = 100
         countStacksMissed++;
@@ -188,7 +188,7 @@ window.onload = () => {
       }
 
     }
-    ctx.fillStyle = "brown";
+    ctx.fillStyle = "red";
     for (let i = 0; i < obstacleArr.length; i++) {
       ctx.fillRect(
         obstacleArr[i].position.x,
@@ -202,7 +202,7 @@ window.onload = () => {
       if (didCollide) {
         obstacleArr.splice(i,1);
         player.score--;
-        player.message='You fumbled the bag :('
+        player.message='OUCH!'
         player.stack.pop();
         player.messageTimer = 100
         countObstacleCollisions++;
@@ -223,8 +223,8 @@ window.onload = () => {
       ctx.font = "68px Times";
       ctx.fillText("GAME OVER", 100, 100);
       ctx.fillStyle = "white";
-      ctx.font = "34px Times";
-      ctx.fillText(`You Dead Boi, Final Score: ${player.score}`, 100, 300);
+      ctx.font = "40px Times";
+      ctx.fillText(`Final Score: ${player.score}`, 185, 300);
     }
   
   function move(e) {
