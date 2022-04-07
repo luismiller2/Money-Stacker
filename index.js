@@ -202,7 +202,7 @@ window.onload = () => {
       if (didCollide) {
         obstacleArr.splice(i,1);
         player.score--;
-        player.message='OUCH!'
+        player.message='OUCH!!!'
         player.stack.pop();
         player.messageTimer = 100
         countObstacleCollisions++;
