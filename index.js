@@ -103,7 +103,7 @@ window.onload = () => {
   const w = canvas.width;
 
   const stackimg = new Image();
-  stackimg.src = "images/moneystacks (1).png";
+  stackimg.src = "images/moneystacks.png";
   stackimg.onload = function () {
     ctx.drawImage(
       stackimg,
@@ -115,7 +115,7 @@ window.onload = () => {
   };
 
    const obstacleimg = new Image();
-  obstacleimg.src = "images/spikes 2.png";
+  obstacleimg.src = "images/spikes.png";
   // obstacleimg.onload = function () {
   //   ctx.drawImage(
   //     obstacleimg,
