@@ -160,12 +160,18 @@ window.onload = () => {
       }
 
     for(let i = 0; i < player.stack.length; i++) {
+      let ys = 30-player.stack.length;
+      let hs = 40-player.stack.length;
+      if(player.stack.length >= 20){
+        ys = 10
+        hs = 20
+      }
       ctx.drawImage(
         stackimg,
         player.position.x,
-        player.position.y-(player.stack[i].h*(i+1))/10,
+        player.position.y-((ys)*(i+1)),
         player.stack[i].w,
-        player.stack[i].h*(1-(player.stack.length /10)),
+        hs,
       );
     }
 
@@ -213,7 +219,7 @@ window.onload = () => {
       );
       obstacleArr[i].position.x += 6;
       //this will evaluate to true or false
-      let didCollide = detectCollision(player, obstacleArr[i]);
+      // let didCollide = detectCollision(player, obstacleArr[i]);
       if (didCollide) {
         obstacleArr.splice(i,1);
         player.score--;
