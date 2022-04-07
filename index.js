@@ -85,6 +85,7 @@ window.onload = () => {
   let obstacleArr = [];
   let countObstacleCollisions = 0;
   let countStacksMissed = 0;
+  let caughtStack = 0;
   player.score = 0;
   // ctx.drawImage(obstacleimg, this.x, this.y, this.w, this.h);
   let int;
@@ -193,6 +194,9 @@ window.onload = () => {
         console.log(caughtStack);
         player.stack.push(caughtStack[0]);
         player.score++;
+        if(player.score === 50){
+          gameWin();
+        }
         break;
       } 
       if(stackArr[i].position.y + stackArr[i].h > canvas.height) {
@@ -232,6 +236,23 @@ window.onload = () => {
         gameOver();
       }
   }
+  }
+
+  function gameWin(){
+    console.log('you win')
+    obstacleArr= [];
+    // if(player.score >= 5){
+      window.cancelAnimationFrame(game);
+      ctx.clearRect(0,0,w,h);
+      ctx.fillStyle = "black";
+      ctx.fillRect(0, 0, w, h);
+      ctx.fillStyle = "red";
+      ctx.font = "68px Times";
+      ctx.fillText("YOU WIN!", 150, 100);
+      ctx.fillStyle = "white";
+      ctx.font = "40px Times";
+      ctx.fillText(`I'm proud of you.`, 155, 300);
+    // }
   }
 
     function gameOver() {
