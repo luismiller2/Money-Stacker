@@ -45,7 +45,6 @@ window.onload = () => {
       };
       this.hitBottom = function () {
         let rockbottom = canvas.height - this.h;
-        // console.log("bottom", rockbottom);
         if (this.position.y > rockbottom) {
           this.position.y = rockbottom;
           this.gravitySpeed = 0;
@@ -63,20 +62,21 @@ window.onload = () => {
         x: Math.random() * 500,
         y: 10,
       };
-      this.w = 100;
-      this.h = 100;
+      this.w = 80;
+      this.h = 80;
     }
   }
 
   class Obstacle {
     constructor() {
       this.position = {
-        x: -140,
-        y: 680,
+        x: -340,
+        y: 670,
       };
-      this.w = 80;
-      this.h = 20;
+      this.w = 140;
+      this.h = 40;
       this.score = 0;
+      // ctx.drawImage(obstacleimg, this.x, this.y, this.w, this.h);
     }
   }
   const stack = new Stack();
@@ -86,6 +86,7 @@ window.onload = () => {
   let countObstacleCollisions = 0;
   let countStacksMissed = 0;
   player.score = 0;
+  // ctx.drawImage(obstacleimg, this.x, this.y, this.w, this.h);
   let int;
 
   function addStack() {
@@ -102,7 +103,7 @@ window.onload = () => {
   const w = canvas.width;
 
   const stackimg = new Image();
-  stackimg.src = "images/moneystacks.png";
+  stackimg.src = "images/moneystacks (1).png";
   stackimg.onload = function () {
     ctx.drawImage(
       stackimg,
@@ -112,6 +113,19 @@ window.onload = () => {
       stack.h
     );
   };
+
+   const obstacleimg = new Image();
+  obstacleimg.src = "images/spikes 2.png";
+  // obstacleimg.onload = function () {
+  //   ctx.drawImage(
+  //     obstacleimg,
+  //     obstacle.position.x,
+  //     obstacle.position.y,
+  //     obstacle.w,
+  //     obstacle.h
+  //   );
+  // };
+
 
   let gameOn = false;
   function startGame() {
@@ -138,7 +152,7 @@ window.onload = () => {
       player.position.x,
       player.position.y,
       player.w,
-      player.h
+      player.h,
     );
       if(player.messageTimer){
         ctx.fillText(player.message, 120, 70);
@@ -149,9 +163,9 @@ window.onload = () => {
       ctx.drawImage(
         stackimg,
         player.position.x,
-        player.position.y-(player.stack[i].h*(i+1)),
+        player.position.y-(player.stack[i].h*(i+1))/10,
         player.stack[i].w,
-        player.stack[i].h
+        player.stack[i].h*(1-(player.stack.length /10)),
       );
     }
 
@@ -190,7 +204,8 @@ window.onload = () => {
     }
     ctx.fillStyle = "red";
     for (let i = 0; i < obstacleArr.length; i++) {
-      ctx.fillRect(
+      ctx.drawImage(
+        obstacleimg,
         obstacleArr[i].position.x,
         obstacleArr[i].position.y,
         obstacleArr[i].w,
