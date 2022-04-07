@@ -219,7 +219,7 @@ window.onload = () => {
       );
       obstacleArr[i].position.x += 6;
       //this will evaluate to true or false
-      // let didCollide = detectCollision(player, obstacleArr[i]);
+      let didCollide = detectCollision(player, obstacleArr[i]);
       if (didCollide) {
         obstacleArr.splice(i,1);
         player.score--;
